@@ -1,0 +1,37 @@
+{
+  "swaggerZ" : "2.0",
+  "infoZ" : {
+    "description" : "A new project that integrates node-express with swagger",
+    "version" : "0.0.1",
+    "title" : "Veteran-e2e-Swagger",
+    "contact" : {
+      "name" : "Michael Ramirez",
+      "email" : "m.ramirez@appliedmemeticsllc.com"
+    }
+  },
+  "host" : "localhost:7201",
+  "basePath" : "/",
+  "schemes" : [ "http", "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/document" : {
+      "get" : {
+        "tags" : [ "document" ],
+        "summary" : "Returns patient json object",
+        "description" : "Returns patient.json object under data subfolder",
+        "operationId" : "getDocument",
+        "parameters" : [ ],
+        "responses" : {
+          "default" : {
+            "description" : "success"
+          }
+        }
+      }
+    },
+    "/swagger" : {
+      "x-swagger-pipe" : "swagger_raw"
+    }
+  },
+  "definitions" : { }
+}
