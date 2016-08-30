@@ -30,25 +30,50 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-verifier-plugin</artifactId>
-                <version>1.1</version>
-                <configuration>
-                    <verificationFile>src/test/verifier/verifications-test.xml</verificationFile>
-                </configuration>
+                <groupId>com.groupon.maven.plugin.json</groupId>
+                <artifactId>json-schema-validator</artifactId>
+                <version>1.2.0</version>
+            </plugin>
+            <plugin>
+                <artifactId>json-schema-validator</artifactId>
+                <groupId>com.groupon.maven.plugin.json</groupId>
                 <executions>
                     <execution>
-                        <id>main</id>
                         <phase>verify</phase>
                         <goals>
-                            <goal>verify</goal>
+                            <goal>validate</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <validations>
+                        <validation>
+                            <directory>${basedir}/src/main/resources/com/myproject/sample</directory>
+                            <jsonSchema>${basedir}/src/test/resources/com/myproject/sample/verifier/swagger.schema.json</jsonSchema>
+                            <includes>
+                                <include>**/*.json</include>
+                                <include>**/*healthadapter*</include>
+                            </includes>
+                        </validation>
+                    </validations>
+                </configuration>
             </plugin>
+
         </plugins>
 
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.6</version>
+                <configuration>
+                    <targetJdk>1.8</targetJdk>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
 
 </project>
