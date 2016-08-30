@@ -1,4 +1,4 @@
-package com.blogspot.geekabyte.sample;
+package com.myproject.sample;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
